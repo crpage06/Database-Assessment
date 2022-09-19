@@ -24,3 +24,47 @@ else {
     /* Fetch the result into an associative array */
     $this_drink_record = mysqli_fetch_assoc($this_drink_result)		
 ?>
+<!DOCTYPE html>	
+<html lang="en">
+	
+	<head>
+        	<meta charset="utf-8">
+        	<title></title>
+
+        	<meta name="description" content="">
+        	<link href="css/styles.css" rel="stylesheet">
+
+	</head>
+	<style>
+	table, th, td {
+  	border:1px solid black;
+		border-collapse: collapse
+	}
+	th, td{
+		background-color: white
+		}
+	</style>
+	<body>
+		<h1>Canteen Menu</h1>
+		<h2>Drinks</h2>
+
+		<table style="width:50%">
+		<tr>
+			<th>Drink</th>
+			<th>Cost</th>
+			<th>Status</th>
+		</tr>
+		<tr>
+			<td><?php
+				echo "" .$this_drink_record['drink']. "";
+			?> </td>
+			<td><?php
+				echo "$" .$this_drink_record['cost']. "";
+			?> </td>
+			<td><?php
+				echo "" .$this_drink_record['status']. "";
+			?> </td>
+		</tr>
+		</table>
+	</body>
+</html>
