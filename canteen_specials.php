@@ -4,25 +4,7 @@ $dbcon = mysqli_connect("localhost", "carinapage", "gLs5CJg", "carinapage_cantee
 
 if($dbcon == NULL) {
     echo "Could not connect to database";
-    exit(); }
-else {
-	echo "Successfully Connected to database";
-}
-/* Get from the drink id from index page else set default */
-    if(isset($_GET['specials_sel'])) {
-        $special_id = $_GET['specials_sel'];
-    } else {
-        $special_id = 1;
-    }
-
-    /* Create SQL query */
-    $this_specials_query = "SELECT * FROM specials WHERE specials.special_id = '" .$special_id . "'";
-
-    /* Perform the query against the database */
-    $this_specials_result = mysqli_query($dbcon, $this_specials_query);
-
-    /* Fetch the result into an associative array */
-    $this_specials_record = mysqli_fetch_assoc($this_specials_result)	
+    exit(); }	
 ?>
 
 <!DOCTYPE html>	
@@ -47,6 +29,7 @@ else {
 	</style>
 	<body>
 		<h1>Canteen Menu</h1>
+		<button onclick="document.location='canteen_index.php'">Main Menu</button>
 		<h2>Weekly Specials</h2>
 
 		<table style="width:50%">
@@ -55,17 +38,19 @@ else {
 			<th>Cost</th>
 			<th>Status</th>
 		</tr>
-		<tr>
-			<td><?php
-				echo "" .$this_specials_record['weekly_special']. "";
-			?> </td>
-			<td><?php
-				echo "$" .$this_specials_record['cost']. "";
-			?> </td>
-			<td><?php
-				echo "" .$this_specials_record['status']. "";
-			?> </td>
-		</tr>
+		<?php
+			$sql = "SELECT * FROM specials";
+			$result = $dbcon->query($sql);
+
+			if ($result->num_rows > 0) {
+				while ($row = $result-> fetch_assoc()) {
+					echo "<tr><td>" . $row['weekly_special'] . "</td><td>$" . $row['cost'] . "</td><td>" . $row['status'] . "</td></tr>";
+				}
+			} 
+			else {
+				echo "No Results";
+			}
+			?>
 		</table>
 	</body>
 </html>
