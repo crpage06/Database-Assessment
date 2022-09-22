@@ -4,26 +4,9 @@ $dbcon = mysqli_connect("localhost", "carinapage", "gLs5CJg", "carinapage_cantee
 
 if($dbcon == NULL) {
     echo "Could not connect to database";
-    exit(); }
-else {
-	echo "Successfully Connected to database";
-}
-/* Get from the drink id from index page else set default */
-    if(isset($_GET['drink_sel'])) {
-        $drink_id = $_GET['drink_sel'];
-    } else {
-        $drink_id = 1;
-    }
-
-    /* Create SQL query */
-    $this_drink_query = "SELECT * FROM drinks WHERE drinks.drink_id = '" .$drink_id . "'";
-
-    /* Perform the query against the database */
-    $this_drink_result = mysqli_query($dbcon, $this_drink_query);
-
-    /* Fetch the result into an associative array */
-    $this_drink_record = mysqli_fetch_assoc($this_drink_result)		
+    exit(); }		
 ?>
+
 <!DOCTYPE html>	
 <html lang="en">
 	
@@ -46,25 +29,50 @@ else {
 	</style>
 	<body>
 		<h1>Canteen Menu</h1>
+		<button onclick="document.location='canteen_index.php'">Main Menu</button>
 		<h2>Drinks</h2>
 
 		<table style="width:50%">
-		<tr>
-			<th>Drink</th>
-			<th>Cost</th>
-			<th>Status</th>
-		</tr>
-		<tr>
-			<td><?php
-				echo "" .$this_drink_record['drink']. "";
-			?> </td>
-			<td><?php
-				echo "$" .$this_drink_record['cost']. "";
-			?> </td>
-			<td><?php
-				echo "" .$this_drink_record['status']. "";
-			?> </td>
-		</tr>
+			<tr>
+				<th>Drink</th>
+				<th>Cost</th>
+				<th>Status</th>
+			</tr>
+			<?php
+			$sql = "SELECT * FROM drinks";
+			$result = $dbcon->query($sql);
+
+			if ($result->num_rows > 0) {
+				while ($row = $result-> fetch_assoc()) {
+					echo "<tr><td>" . $row['drink'] . "</td><td>$" . $row['cost'] . "</td><td>" . $row['status'] . "</td></tr>";
+				}
+			} 
+			else {
+				echo "No Results";
+			}
+			?>
+		</table>
+		
+		<h2>Food</h2>
+		<table style="width:50%">
+			<tr>
+				<th>Food</th>
+				<th>Cost</th>
+				<th>Status</th>
+			</tr>
+			<?php
+			$sql = "SELECT * FROM food";
+			$result = $dbcon->query($sql);
+
+			if ($result->num_rows > 0) {
+				while ($row = $result-> fetch_assoc()) {
+					echo "<tr><td>" . $row['food'] . "</td><td>$" . $row['cost'] . "</td><td>" . $row['status'] . "</td></tr>";
+				}
+			} 
+			else {
+				echo "No Results";
+			}
+			?>
 		</table>
 	</body>
 </html>
