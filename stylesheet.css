@@ -1,0 +1,160 @@
+.header {
+  padding: 50px;
+  text-align: center;
+  background: MidnightBlue;
+  color: white;
+  font-size: 30px;
+  font-family: "Lucida Console", Monospace
+}
+
+.footer {
+   position: fixed;
+   padding: 20px;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: MidnightBlue;
+   color: white;
+   text-align: center;
+   font-family: "Lucida Console", Monospace;
+   font-size: 20px;
+}
+
+p.a {
+  text-align-last: center;
+  border-style: solid;
+  border: 4px solid #FFB300;
+  border-radius: 5px;
+  font-size: 30px;
+  font-family: Verdana, Sans-serif;
+}
+
+body {
+  background-color: WhiteSmoke;
+  color: black;
+}
+
+#items {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+#items td, #items th {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+#items tr:nth-child(even){background-color: #f2f2f2;}
+
+#items th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+  background-color: #FFB300;
+  color: white;
+}
+
+table.left {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 28%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+table.right {
+  margin: 0;
+  position: absolute;
+  top: 56.2%;
+  left: 72%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+table.center {
+  margin: 0;
+  position: absolute;
+  top: 50;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  background-color: #FFB300;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 250px;
+  font-weight: bold;
+}
+.button1 {
+  background-color: #FFB300; 
+  color: black; 
+}
+.button1:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #FFB300;
+}
+
+.left {
+  margin: 0;
+  position: absolute;
+  top: 52%;
+  left: 42%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.right {
+  margin: 0;
+  position: absolute;
+  top: 52%;
+  left: 58%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-family: Verdana, Sans-serif;
+  font-size: 30px;
+}
+
+.right2 {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  width: 300px;
+  font-size: 30px;
+  font-family: "Lucida Console", Monospace
+}
+
+.left2 {
+  position: absolute;
+  top: 30%;
+  left: 70%;
+  width: 300px;
+  font-size: 30px;
+  font-family: "Lucida Console", Monospace
+}
+
+.center2 {
+  position: absolute;
+  top: 35%;
+  left: 43%;
+  width: 300px;
+  font-size: 30px;
+  font-family: "Lucida Console", Monospace
+}
