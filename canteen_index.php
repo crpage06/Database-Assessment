@@ -19,23 +19,28 @@ if($dbcon == NULL) {
 <!DOCTYPE html>
 <html>
 	<head>
+		<!--Links to style sheet-->
 		<link rel="stylesheet" href="stylesheet.css">
 	</head>
 	<body>
+		<!--Header-->
 		<div class="header">
-			<img src="https://images.app.goo.gl/97jZZgoxUZwisWQr8" alt="WEGC Logo">
 			<h1>WEGC Canteen Menu</h1>
 		</div>
+		<!--Introduction paragraph-->
 		<p class="a" class="solid">Welcome to the Wellington East Girls' College Canteen website. Here you can find the menu for our school canteen to see what we have to offer. Click the "Drinks and Food" Button to look at the drinks and food available, or click the "Weekly Specials" button to look at what our specials are.</p>
 		
+		<!--Buttons that takes you to the food and drinks menu-->
 		<div class="left">
 			<button class="button button1" onclick="document.location='canteen_drinks_food.php'">Drinks and Food</button>
 		</div>
+		<!--Button that takes you to the specials menu-->
 		<div class="right">
 			<button class="button button1" onclick="document.location='canteen_specials.php'">Weekly Specials</button>
 		</div>
 		<br>
 		
+		<!--Says what this weeks special is depending on which special is "in stock"-->
 		<div class="center">
 			<?php
 			echo "This weeks special is " . $this_specials_record['weekly_special'] . "";
